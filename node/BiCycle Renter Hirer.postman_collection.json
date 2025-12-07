@@ -1,0 +1,607 @@
+{
+	"info": {
+		"_postman_id": "7d8e0169-4822-4d9f-bb89-1d32e5b4e400",
+		"name": "BiCycle Renter Hirer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15760552"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "admin@bicycle.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}user/login",
+									"host": [
+										"{{baseUrl}}user"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Renters",
+					"item": [
+						{
+							"name": "Get All",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{adminToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}user/renter/all",
+									"host": [
+										"{{baseUrl}}user"
+									],
+									"path": [
+										"renter",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Single",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{adminToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "_id",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}user/single",
+									"host": [
+										"{{baseUrl}}user"
+									],
+									"path": [
+										"single"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{adminToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Renter 1",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "renter1@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345",
+											"type": "text"
+										},
+										{
+											"key": "contact",
+											"value": "9999911111",
+											"type": "text"
+										},
+										{
+											"key": "userType",
+											"value": "2",
+											"description": "send implicitely",
+											"type": "text"
+										},
+										{
+											"key": "userStatus",
+											"value": "2",
+											"description": "1=> pending, 2=> Approved 3=> rejected",
+											"type": "text"
+										},
+										{
+											"key": "idProof_image",
+											"type": "file",
+											"src": "/C:/Users/Dell Optiplex/Desktop/images/default2.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}user/add",
+									"host": [
+										"{{baseUrl}}user"
+									],
+									"path": [
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{adminToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Renter 1",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "renter1@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345",
+											"type": "text"
+										},
+										{
+											"key": "contact",
+											"value": "9999911111",
+											"type": "text"
+										},
+										{
+											"key": "userType",
+											"value": "2",
+											"description": "send implicitely",
+											"type": "text"
+										},
+										{
+											"key": "userStatus",
+											"value": "3",
+											"description": "1=> pending, 2=> Approved 3=> rejected",
+											"type": "text"
+										},
+										{
+											"key": "idProof_image",
+											"type": "file",
+											"src": "/C:/Users/Dell Optiplex/Desktop/images/football.png"
+										},
+										{
+											"key": "_id",
+											"value": "638843865db1dc0b35377bff",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}user/update",
+									"host": [
+										"{{baseUrl}}user"
+									],
+									"path": [
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Hirer",
+					"item": [
+						{
+							"name": "Get All",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{adminToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}user/hirer/all",
+									"host": [
+										"{{baseUrl}}user"
+									],
+									"path": [
+										"hirer",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Single",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{adminToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "_id",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}user/single",
+									"host": [
+										"{{baseUrl}}user"
+									],
+									"path": [
+										"single"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{adminToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Hirer 1",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "hirer@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345",
+											"type": "text"
+										},
+										{
+											"key": "contact",
+											"value": "9999911111",
+											"type": "text"
+										},
+										{
+											"key": "idProof_image",
+											"type": "file",
+											"src": "/C:/Users/Dell Optiplex/Desktop/images/default2.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}user/add",
+									"host": [
+										"{{baseUrl}}user"
+									],
+									"path": [
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{adminToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Hirer 1",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "hirer@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345",
+											"type": "text"
+										},
+										{
+											"key": "contact",
+											"value": "9999911111",
+											"type": "text"
+										},
+										{
+											"key": "_id",
+											"value": "638843865db1dc0b35377bff",
+											"description": "send implicitely",
+											"type": "text"
+										},
+										{
+											"key": "idProof_image",
+											"type": "file",
+											"src": "/C:/Users/Dell Optiplex/Desktop/images/football.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}user/update",
+									"host": [
+										"{{baseUrl}}user"
+									],
+									"path": [
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Bicycle",
+					"item": [
+						{
+							"name": "Get All",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{adminToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}bicycle/all",
+									"host": [
+										"{{baseUrl}}bicycle"
+									],
+									"path": [
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Single",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{adminToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "_id",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}bicycle/single",
+									"host": [
+										"{{baseUrl}}bicycle"
+									],
+									"path": [
+										"single"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{adminToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "bikeType",
+											"value": "Motor",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "bicycle_image",
+											"type": "file",
+											"src": "/C:/Users/Dell Optiplex/Desktop/images/football.png"
+										},
+										{
+											"key": "pricePerHour",
+											"value": "20",
+											"type": "text"
+										},
+										{
+											"key": "location",
+											"value": "Jalandhar",
+											"type": "text"
+										},
+										{
+											"key": "userId",
+											"value": "638843865db1dc0b35377bff",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}bicycle/add",
+									"host": [
+										"{{baseUrl}}bicycle"
+									],
+									"path": [
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{adminToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "bikeType",
+											"value": "Motor",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "testing",
+											"type": "text"
+										},
+										{
+											"key": "pricePerHour",
+											"value": "25",
+											"type": "text"
+										},
+										{
+											"key": "location",
+											"value": "Jalandhar",
+											"type": "text"
+										},
+										{
+											"key": "userId",
+											"value": "638843865db1dc0b35377bff",
+											"description": "send implicitely",
+											"type": "text"
+										},
+										{
+											"key": "_id",
+											"value": "6388497c53bd33a311c6a4df",
+											"description": "1=> pending, 2=> Approved 3=> rejected",
+											"type": "text"
+										},
+										{
+											"key": "bicycle_image",
+											"type": "file",
+											"src": "/C:/Users/Dell Optiplex/Desktop/images/football.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}bicycle/update",
+									"host": [
+										"{{baseUrl}}bicycle"
+									],
+									"path": [
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
