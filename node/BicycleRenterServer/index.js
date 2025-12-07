@@ -3,7 +3,7 @@ const res = require('express/lib/response')
 const db = require('./server/config/db')
 const cors = require('cors')
 const app = express()
-const PORT = 3015
+const PORT = 3001
 const apiRoutes = require('./server/routes/apiRoutes')
 
 app.use(cors());
@@ -20,6 +20,6 @@ app.use('/api', apiRoutes)
 
 
 // require('./server/config/seed')
-app.listen(PORT, () => {
+app.listen(PORT,'0.0.0.0', () => {
     console.log("Server Listerning to port ", PORT)
 })
