@@ -1,0 +1,31 @@
+name: Deploy MEAN App 
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+# backend
+    steps:
+      - name: Pull latest code
+        run: |
+          cd ~/Bicycle_On_Rent_vaneet
+          git reset --hard
+          git pull origin main
+
+      - name: Install backend dependencies
+        run: |
+          cd ~/Bicycle_On_Rent_vaneet/node/BicycleRenterServer
+          sudo npm install
+
+      - name: Restart PM2 Backend
+        run: |
+          pm2 restart backend || pm2 start ~/Bicycle_On_Rent_vaneet/node/BicycleRenterServer/index.js --name backend
+          pm2 save
+          
+
+
+   
